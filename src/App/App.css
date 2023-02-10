@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Inter, Arial, sans-serif;
+  background-color: #1e2633;
+  color: #cce7d6;
+}
+
+.content {
+  margin: 40px auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content__header {
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+  font-size: 40px;
+  color: #59a76e;
+}
+
+.content__description {
+  padding: 25px 0 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 22px;
+}
+
+.content__emphasis {
+  font-weight: 500;
+  color: #59a76e;
+}
