@@ -1,13 +1,17 @@
 body {
   margin: 0;
+  min-height: 100vh;
+  width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: Inter, Arial, sans-serif;
-  background-color: #1e2633;
-  color: #cce7d6;
+  background-color: #010100;
+  color: #dbdfcf;
 }
 
 .content {
+  min-width: 320px;
+  max-width: 1280px;
   margin: 40px auto;
   box-sizing: border-box;
   display: flex;
@@ -16,21 +20,46 @@ body {
 }
 
 .content__header {
+  max-width: 80%;
   padding: 0;
   margin: 0;
   font-weight: 500;
-  font-size: 40px;
-  color: #59a76e;
+  font-size: clamp(1.31rem, calc(0.92rem + 1.98vw), 2.5rem);
+  color: #00c54f;
 }
 
 .content__description {
-  padding: 25px 0 0;
+  max-width: 80%;
+  padding: 25px 0 35px;
   margin: 0;
   font-weight: 400;
-  font-size: 22px;
+  font-size: clamp(0.69rem, calc(0.54rem + 0.73vw), 1.13rem);
 }
 
 .content__emphasis {
   font-weight: 500;
-  color: #59a76e;
+  color: #00c54f;
+}
+
+.tf-custom .tf-nc {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.7em;
+  width: 2.7em;
+  border: 2px solid #00c54f;
+  color: #dbdfcf;
+  border-radius: 50%;
+}
+
+.tf-custom .tf-nc:before,
+.tf-custom .tf-nc:after {
+  border-left-color: #00c54f;
+  border-left-width: 1.5px;
+}
+
+.tf-custom li li:before {
+  border-top-color: #00c54f;
+  border-top-width: 1.5px;
 }

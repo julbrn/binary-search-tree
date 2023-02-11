@@ -1,70 +1,29 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import "./App.css";
-import { BinarySearchTree } from '../BinarySearchTree/BinarySearchTree';
+import { BinarySearch } from '../BinarySearch';
+import { Tree } from '../Tree';
 
-const binarySearchTree = new BinarySearchTree();
-
-function Tree(props) {
-  const { data } = props;
-
-  function renderTree(node) {
-    return Object.entries(node).map(function ([key, value]) {
-      if (key === 'left' && typeof value === 'object') {
-        if (value !== null) {
-          return (
-            <li key={value.data}>
-              <Tree data={value} />
-            </li>
-          );
-        }
-        if (value === null) {
-          return null;
-        }
-      } else if (key === 'right' && typeof value === 'object') {
-        if (value !== null) {
-          return (
-            <li key={value.data}>
-              <Tree data={value} />
-            </li>
-          );
-        }
-        if (value === null) {
-          return null;
-        }
-      }
-    });
-  }
-
-  return data ? (
-    <>
-      <span className="tf-nc">{data.data}</span>
-      <ul>{renderTree(data)}</ul>
-    </>
-  ) : (
-    'EMPTY'
-  );
-}
+const newNode = new BinarySearch();
 
 function App() {
   const [root, setRoot] = useState(null);
 
   useEffect(() => {
-    binarySearchTree.add(20);
-    binarySearchTree.add(40);
-    binarySearchTree.add(35);
-    binarySearchTree.add(55);
-    binarySearchTree.add(0);
-    binarySearchTree.add(-11);
-    binarySearchTree.add(-5);
-    setRoot((prev) => ({ ...prev, ...binarySearchTree.root }));
+    newNode.add(20);
+    newNode.add(40);
+    newNode.add(35);
+    newNode.add(55);
+    newNode.add(-10);
+    newNode.add(-50);
+    newNode.add(5);
+    setRoot((prev) => ({ ...prev, ...newNode.root }));
 
   }, []);
 
   function addNumber() {
     const number = Math.round(Math.random() * (100 - -100) + -100);
-    binarySearchTree.add(number);
-    setRoot((prev) => ({ ...prev, ...binarySearchTree.root }));
-    console.log(number);
+    newNode.add(number);
+    setRoot((prev) => ({ ...prev, ...newNode.root }));
   }
 
   let handleSpacePress = useCallback(event => {
@@ -86,8 +45,8 @@ function App() {
       <p className='content__description'><span className="content__emphasis">Описание: </span>При нажатии на пробел генерируется номер в диапазоне [-100, 100] и добавляется в дерево.</p>
       <div className="tf-tree tf-custom">
         <ul>
-          <li>
-            <Tree data={root} parent={binarySearchTree.root} />
+          <li className="tf-dotted-children">
+            <Tree number={root} parent={newNode.root} />
           </li>
         </ul>
       </div>
