@@ -3,11 +3,10 @@ const VisualizedTree = ({ root }) => {
     const [color, setColor] = useState(false);
     useEffect(() => {
         setColor(true);
-        return () => {
-            setTimeout(() => {
-                setColor(false);
-            }, 700);
-        }
+        const timer = setTimeout(() => {
+            setColor(false);
+        }, 700);
+        return () => clearTimeout(timer);
     }, [])
 
     function renderTree(node) {

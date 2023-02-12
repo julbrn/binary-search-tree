@@ -8,7 +8,7 @@ const newTree = new BinarySearch();
 const App = () => {
   const [root, setRoot] = useState(null);
   const handleSpacePress = (event) => {
-    if (event.code === 'Space' || (event === "touchstart")) {
+    if ((event.code) === 'Space' || (event == "touchstart")) {
       const randomNumber = Math.round(Math.random() * (100 - -100) + -100);
       newTree.add(randomNumber);
       setRoot((prev) => ({ ...prev, ...newTree.root }));
