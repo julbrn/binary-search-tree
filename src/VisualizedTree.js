@@ -1,13 +1,12 @@
-function Tree(props) {
-    const { number } = props;
+const VisualizedTree = ({ root }) => {
 
     function renderTree(node) {
-        return Object.entries(node).map(function ([key, value]) {
+        return Object.entries(node).map(([key, value]) => {
             if (key === 'left' && typeof value === 'object') {
                 if (value !== null) {
                     return (
                         <li key={value.number}>
-                            <Tree number={value} />
+                            <VisualizedTree root={value} />
                         </li>
                     );
                 }
@@ -18,7 +17,7 @@ function Tree(props) {
                 if (value !== null) {
                     return (
                         <li key={value.number}>
-                            <Tree number={value} />
+                            <VisualizedTree root={value} />
                         </li>
                     );
                 }
@@ -29,14 +28,14 @@ function Tree(props) {
         });
     }
 
-    return number ? (
+    return root ? (
         <>
-            <span className="tf-nc">{number.number}</span>
-            <ul>{renderTree(number)}</ul>
+            <span className="tf-nc">{root.number}</span>
+            <ul>{renderTree(root)}</ul>
         </>
     ) : (
-        'пусто'
+        ' '
     );
 }
 
-export { Tree };
+export default VisualizedTree;

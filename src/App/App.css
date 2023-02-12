@@ -11,8 +11,8 @@ body {
 
 .content {
   min-width: 320px;
-  max-width: 1280px;
-  margin: 40px auto;
+  max-width: 90%;
+  margin: 0 auto 20px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@ body {
 
 .content__header {
   max-width: 80%;
-  padding: 0;
+  padding: 30px 0 0;
   margin: 0;
   font-weight: 500;
   font-size: clamp(1.31rem, calc(0.92rem + 1.98vw), 2.5rem);
@@ -34,11 +34,29 @@ body {
   margin: 0;
   font-weight: 400;
   font-size: clamp(0.69rem, calc(0.54rem + 0.73vw), 1.13rem);
+  position: relative;
 }
 
 .content__emphasis {
   font-weight: 500;
   color: #00c54f;
+}
+
+.tf-custom {
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+.tf-custom::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tf-custom::-webkit-scrollbar-thumb {
+  background: #00c54f;
+}
+
+.tf-custom::-webkit-scrollbar-track {
+  background: rgb(64, 63, 63);
 }
 
 .tf-custom .tf-nc {
@@ -62,4 +80,9 @@ body {
 .tf-custom li li:before {
   border-top-color: #00c54f;
   border-top-width: 1.5px;
+}
+
+.test {
+  background-color: red;
+  color: red;
 }

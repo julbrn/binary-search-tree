@@ -1,52 +1,48 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./App.css";
-import { BinarySearch } from '../BinarySearch';
-import { Tree } from '../Tree';
+import BinarySearch from '../BinarySearch';
+import VisualizedTree from '../VisualizedTree';
 
-const newNode = new BinarySearch();
+const newTree = new BinarySearch();
 
-function App() {
+const App = () => {
   const [root, setRoot] = useState(null);
-
-  useEffect(() => {
-    newNode.add(20);
-    newNode.add(40);
-    newNode.add(35);
-    newNode.add(55);
-    newNode.add(-10);
-    newNode.add(-50);
-    newNode.add(5);
-    setRoot((prev) => ({ ...prev, ...newNode.root }));
-
-  }, []);
-
-  function addNumber() {
-    const number = Math.round(Math.random() * (100 - -100) + -100);
-    newNode.add(number);
-    setRoot((prev) => ({ ...prev, ...newNode.root }));
-  }
-
-  let handleSpacePress = useCallback(event => {
-    if (event.code === 'Space') {
-      addNumber();
+  const handleSpacePress = (event) => {
+    if ((event.code) === 'Space' || (event = "touchstart")) {
+      const randomNumber = Math.round(Math.random() * (100 - -100) + -100);
+      newTree.add(randomNumber);
+      setRoot((prev) => ({ ...prev, ...newTree.root }));
     }
-  }, []);
+  };
 
   useEffect(() => {
-    window.addEventListener('keyup', handleSpacePress);
+    newTree.add(20);
+    newTree.add(1);
+    newTree.add(35);
+    newTree.add(55);
+    newTree.add(-10);
+    newTree.add(-50);
+    newTree.add(5);
+    setRoot((prev) => ({ ...prev, ...newTree.root }));
+    window.addEventListener("keyup", handleSpacePress);
+    window.addEventListener("touchstart", handleSpacePress);
+
     return () => {
       window.removeEventListener("keyup", handleSpacePress);
+      window.removeEventListener("touchstart", handleSpacePress);
     };
-  }, [handleSpacePress]);
+
+
+  }, []);
 
   return (
     <div className="content">
       <h1 className="content__header">Бинарное дерево поиска</h1>
       <p className='content__description'><span className="content__emphasis">Описание: </span>При нажатии на пробел генерируется номер в диапазоне [-100, 100] и добавляется в дерево.</p>
-      <div className="tf-tree tf-custom">
+      <div className="tf-tree tf-custom tf-gap-sm">
         <ul>
           <li className="tf-dotted-children">
-            <Tree number={root} parent={newNode.root} />
+            <VisualizedTree root={root} />
           </li>
         </ul>
       </div>

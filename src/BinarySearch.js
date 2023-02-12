@@ -4,25 +4,23 @@ class BinarySearch {
         this.root = null;
     }
 
-    add(number) {
-        const node = this.root;
-        if (node === null) {
-            this.root = new Node(number);
+    add(value) {
+        const currentRoot = this.root;
+        if (!currentRoot) {
+            this.root = new Node(value);
             return;
         } else {
-            function searchTree(node) {
-                if (number < node.number) {
+            const searchTree = (node) => {
+                if (value < node.number) {
                     if (node.left === null) {
-                        node.left = new Node(number);
-                        console.log(number);
+                        node.left = new Node(value);
                         return;
                     } else if (node.number !== null) {
                         return searchTree(node.left);
                     }
-                } else if (number > node.number) {
+                } else if (value > node.number) {
                     if (node.right === null) {
-                        node.right = new Node(number);
-                        console.log(number);
+                        node.right = new Node(value);
                         return;
                     } else if (node.number !== null) {
                         return searchTree(node.right);
@@ -31,13 +29,9 @@ class BinarySearch {
                     return null;
                 }
             }
-            searchTree(node);
+            searchTree(currentRoot);
         }
-    }
-
-    render() {
-        return this.root;
     }
 }
 
-export { BinarySearch };
+export default BinarySearch;
