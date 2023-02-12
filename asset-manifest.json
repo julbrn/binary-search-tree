@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/binary-search-tree/static/css/main.e7b78419.css",
-    "main.js": "/binary-search-tree/static/js/main.2fad7d78.js",
+    "main.js": "/binary-search-tree/static/js/main.53e6f166.js",
     "static/js/787.782127d4.chunk.js": "/binary-search-tree/static/js/787.782127d4.chunk.js",
     "static/media/Inter-Medium.woff": "/binary-search-tree/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
     "static/media/Inter-Regular.woff": "/binary-search-tree/static/media/Inter-Regular.8c206db99195777c6769.woff",
@@ -9,11 +9,11 @@
     "static/media/Inter-Regular.woff2": "/binary-search-tree/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
     "index.html": "/binary-search-tree/index.html",
     "main.e7b78419.css.map": "/binary-search-tree/static/css/main.e7b78419.css.map",
-    "main.2fad7d78.js.map": "/binary-search-tree/static/js/main.2fad7d78.js.map",
+    "main.53e6f166.js.map": "/binary-search-tree/static/js/main.53e6f166.js.map",
     "787.782127d4.chunk.js.map": "/binary-search-tree/static/js/787.782127d4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e7b78419.css",
-    "static/js/main.2fad7d78.js"
+    "static/js/main.53e6f166.js"
   ]
 }
