@@ -1,4 +1,14 @@
+import React, { useEffect, useState } from 'react';
 const VisualizedTree = ({ root }) => {
+    const [color, setColor] = useState(false);
+    useEffect(() => {
+        setColor(true);
+        return () => {
+            setTimeout(() => {
+                setColor(false);
+            }, 700);
+        }
+    }, [])
 
     function renderTree(node) {
         return Object.entries(node).map(([key, value]) => {
@@ -30,7 +40,7 @@ const VisualizedTree = ({ root }) => {
 
     return root ? (
         <>
-            <span className="tf-nc">{root.number}</span>
+            <span className={color ? "tf-nc active" : "tf-nc"}>{root.number}</span>
             <ul>{renderTree(root)}</ul>
         </>
     ) : (

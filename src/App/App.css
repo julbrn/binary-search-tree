@@ -74,15 +74,15 @@ body {
 .tf-custom .tf-nc:before,
 .tf-custom .tf-nc:after {
   border-left-color: #00c54f;
-  border-left-width: 1.5px;
+  border-left-width: 2px;
 }
 
 .tf-custom li li:before {
   border-top-color: #00c54f;
-  border-top-width: 1.5px;
+  border-top-width: 2px;
 }
 
-.test {
-  background-color: red;
-  color: red;
+.active {
+  background-color: #00c54f;
+  opacity: 0.8;
 }
